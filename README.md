@@ -2,7 +2,7 @@
 
 A web application that tracks and visualizes user agent requests, distinguishing between allowed and blocked agents.
 
-![Dashboard Screenshot]('https://res.cloudinary.com/drbxd3o2a/image/upload/v1745439056/userAnalytics_p8nmo8.png') 
+![Dashboard Screenshot](https://asset.cloudinary.com/dxvcpf1wh/c95e801e30bf7aeb2c49c1eaf954747b) 
 
 
 ## Features
