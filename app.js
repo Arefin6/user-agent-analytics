@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const rateLimit = require("express-rate-limit");
+const checkUserAgent = require("./middleware/checkAgent");
+const userRoutes = require("./routes/userRoutes");
 const port = 5000;
 
 // Middleware to parse JSON
@@ -10,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // join the public directory
-//app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Rate limiting middleware
 const limiter = rateLimit({
@@ -24,6 +26,8 @@ const limiter = rateLimit({
 app.get("/", limiter, (req, res) => {
   res.send("Hello, World!");
 });
+
+app.use("/api/user", limiter, checkUserAgent, userRoutes);
 
 // Start the server
 app.listen(port, () => {
